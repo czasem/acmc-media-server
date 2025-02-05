@@ -10,4 +10,9 @@ public class GlobalConfiguration extends OkaeriConfig {
 
     @Comment("Powód wyrzucenia gracza z trybu")
     public List<String> kickReason = new ArrayList<>();
+
+    public GlobalConfiguration() {
+        kickReason.add("Zostlaes wyrzucony");
+        kickReason.add("bo tak");
+    }
 }
