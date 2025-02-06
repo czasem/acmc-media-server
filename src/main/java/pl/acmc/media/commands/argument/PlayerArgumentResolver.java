@@ -9,17 +9,19 @@ import dev.rollczi.litecommands.suggestion.SuggestionResult;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import pl.acmc.media.api.messager.Messager;
+import pl.acmc.media.utils.ChatUtil;
 
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class KickArgument extends ArgumentResolver<CommandSender, Player> {
+public class PlayerArgumentResolver extends ArgumentResolver<CommandSender, Player> {
 
     @Override
     public ParseResult<Player> parse(Invocation<CommandSender> invocation, Argument<Player> context, String argument) {
         Player target = Bukkit.getPlayerExact(argument);
         if (target == null) {
-            return ParseResult.failure("Gracz o nicku " + argument + " nie jest online!");
+            return ParseResult.failure(ChatUtil.coloredHex("&#FF0029✖ &8| &cGracz o nicku &4" + argument + " &cnie jest online!"));
         }
         return ParseResult.success(target);
     }

@@ -9,8 +9,11 @@ import dev.rollczi.litecommands.suggestion.SuggestionResult;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import pl.acmc.media.Main;
-import pl.acmc.media.commands.argument.KickArgument;
-import pl.acmc.media.commands.cmds.staff.KickPlayerCommand;
+import pl.acmc.media.commands.argument.PlayerArgumentResolver;
+import pl.acmc.media.commands.cmds.staff.kick.KickPlayerCommand;
+import pl.acmc.media.commands.cmds.staff.chat.ChatCommand;
+import pl.acmc.media.commands.cmds.staff.join.JoinCommand;
+import pl.acmc.media.commands.cmds.staff.pvp.PvPCommand;
 import pl.acmc.media.features.spawn.SpawnCommand;
 import pl.acmc.media.features.warps.WarpCommand;
 import pl.acmc.media.handlers.CommandInvalidUsageHandler;
@@ -27,7 +30,7 @@ import java.util.List;
 
 public class LiteCommandsCustomBuilder {
     public static void build(LiteCommands<CommandSender> liteCommands) {
-        LiteCommandsBuilder<CommandSender, LiteBukkitSettings, ?> builder = LiteBukkitFactory.builder("mining", Main.getInstance());
+        LiteCommandsBuilder<CommandSender, LiteBukkitSettings, ?> builder = LiteBukkitFactory.builder("acmc-media", Main.getInstance());
 
         builder.
                 invalidUsage(new CommandInvalidUsageHandler())
@@ -38,8 +41,8 @@ public class LiteCommandsCustomBuilder {
                 .message(LiteBukkitMessages.WORLD_NOT_EXIST, input -> ChatUtil.coloredHex("&#FF0000:( &cŚwiat &#FF0000" + input + " &cnie został odnaleziony!"))
                 .missingPermission(new CommandMissingPermissionsHandler());
 
-        builder.
-                argument(Player.class, new KickArgument())
+        builder
+                .argument(Player.class, new PlayerArgumentResolver())
                 //.argument(String.class, new WeaponArgument())
 
                 .argumentSuggestion(Integer.class, SuggestionResult.of("1", "2", "3"));
@@ -47,7 +50,8 @@ public class LiteCommandsCustomBuilder {
         List<Object> commands = new ArrayList<>();
 
         commands.addAll(Arrays.asList(
-                new KickPlayerCommand(), new WarpCommand(), new SpawnCommand()
+                new KickPlayerCommand(), new WarpCommand(), new SpawnCommand(), new PvPCommand(), new ChatCommand(),
+                new JoinCommand()
         ));
 
         for (Object object : commands)

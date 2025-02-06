@@ -1,4 +1,4 @@
-package pl.acmc.media.commands.cmds.staff;
+package pl.acmc.media.commands.cmds.staff.gamemode;
 
 import dev.rollczi.litecommands.annotations.argument.Arg;
 import dev.rollczi.litecommands.annotations.command.Command;
