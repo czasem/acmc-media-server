@@ -11,6 +11,7 @@ import org.bukkit.entity.Player;
 import pl.acmc.media.Main;
 import pl.acmc.media.commands.argument.KickArgument;
 import pl.acmc.media.commands.cmds.staff.KickPlayerCommand;
+import pl.acmc.media.features.spawn.SpawnCommand;
 import pl.acmc.media.features.warps.WarpCommand;
 import pl.acmc.media.handlers.CommandInvalidUsageHandler;
 import pl.acmc.media.handlers.CommandMissingPermissionsHandler;
@@ -46,7 +47,7 @@ public class LiteCommandsCustomBuilder {
         List<Object> commands = new ArrayList<>();
 
         commands.addAll(Arrays.asList(
-                new KickPlayerCommand(), new WarpCommand()
+                new KickPlayerCommand(), new WarpCommand(), new SpawnCommand()
         ));
 
         for (Object object : commands)
