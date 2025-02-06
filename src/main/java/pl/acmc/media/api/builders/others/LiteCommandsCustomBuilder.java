@@ -12,6 +12,7 @@ import pl.acmc.media.Main;
 import pl.acmc.media.commands.argument.PlayerArgumentResolver;
 import pl.acmc.media.commands.cmds.players.msg.MsgCommand;
 import pl.acmc.media.commands.cmds.players.msg.ReplyCommand;
+import pl.acmc.media.commands.cmds.staff.countdown.CountdownCommand;
 import pl.acmc.media.commands.cmds.staff.kick.KickPlayerCommand;
 import pl.acmc.media.commands.cmds.staff.chat.ChatCommand;
 import pl.acmc.media.commands.cmds.staff.join.JoinCommand;
@@ -55,7 +56,8 @@ public class LiteCommandsCustomBuilder {
 
         commands.addAll(Arrays.asList(
                 new KickPlayerCommand(), new WarpCommand(), new SpawnCommand(), new PvPCommand(), new ChatCommand(),
-                new JoinCommand(), new MsgCommand(), new ReplyCommand(), new TpHereCommand(), new TpCommand()
+                new JoinCommand(), new MsgCommand(), new ReplyCommand(), new TpHereCommand(), new TpCommand(),
+                new CountdownCommand()
         ));
 
         for (Object object : commands)

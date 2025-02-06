@@ -14,6 +14,8 @@ public class MsgBlockedMessages {
             "zielonemc", "craftcube"
     );
 
+    private static final String ASCII_REGEX = "^[\\x00-\\x7F]*$";
+
     public static boolean containsBlockedWords(String message) {
         String lowerMessage = message.toLowerCase();
         for (String word : blockedWords) {
@@ -21,6 +23,14 @@ public class MsgBlockedMessages {
                 return true;
             }
         }
+
+        if (!message.matches(ASCII_REGEX)) {
+            return true;
+        }
         return false;
+
+
     }
+
+
 }
