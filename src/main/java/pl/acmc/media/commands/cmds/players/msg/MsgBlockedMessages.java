@@ -18,7 +18,6 @@ public class MsgBlockedMessages {
         String lowerMessage = message.toLowerCase();
         for (String word : blockedWords) {
             if (lowerMessage.matches(".*" + word + ".*")) {
-
                 return true;
             }
         }

@@ -41,9 +41,11 @@ public class MsgCommand {
         }
 
 
-        if (MsgBlockedMessages.containsBlockedWords(message)) {
-            Messager.send(player, "Twoja wiadomość zawiera niedozwolone słowo", MessagerType.ERROR);
-            return;
+        if(!player.hasPermission("acmc.msg.bypass")) {
+            if (MsgBlockedMessages.containsBlockedWords(message)) {
+                Messager.send(player, "Twoja wiadomość zawiera niedozwolone słowo", MessagerType.ERROR);
+                return;
+            }
         }
 
         Messager.send(player, "&8(&fTy &8→ &f{NICK}&8) >> &f{MESSAGE}".replace("{NICK}", target.getName()).replace("{MESSAGE}", message), MessagerType.MESSAGE);
