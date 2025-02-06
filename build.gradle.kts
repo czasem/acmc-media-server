@@ -44,7 +44,7 @@ dependencies {
     implementation("eu.okaeri:okaeri-configs-yaml-bukkit:5.0.5")
     implementation("eu.okaeri:okaeri-configs-serdes-bukkit:5.0.5")
     implementation("com.zaxxer:HikariCP:4.0.3")
-    compileOnly("dev.triumphteam:triumph-gui:3.1.10")
+    implementation("dev.triumphteam:triumph-gui:3.1.10")
     implementation("de.tr7zw:item-nbt-api-plugin:2.13.2")
 
 

@@ -28,7 +28,7 @@ public class KickPlayerCommand {
             Messager.send(player, "Gracz {NICK} jest offline".replace("{NICK}", targetName), MessagerType.ERROR);
         }
 
-        StringJoiner joiner = new StringJoiner(", ");
+        StringJoiner joiner = new StringJoiner("\n");
         for (String reason : globalConfiguration.kickReason) {
             joiner.add(reason);
         }

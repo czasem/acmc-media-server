@@ -6,9 +6,12 @@ import dev.rollczi.litecommands.bukkit.LiteBukkitFactory;
 import dev.rollczi.litecommands.bukkit.LiteBukkitMessages;
 import dev.rollczi.litecommands.bukkit.LiteBukkitSettings;
 import dev.rollczi.litecommands.suggestion.SuggestionResult;
-import org.bukkit.GameMode;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 import pl.acmc.media.Main;
+import pl.acmc.media.commands.argument.KickArgument;
+import pl.acmc.media.commands.cmds.staff.KickPlayerCommand;
+import pl.acmc.media.features.warps.WarpCommand;
 import pl.acmc.media.handlers.CommandInvalidUsageHandler;
 import pl.acmc.media.handlers.CommandMissingPermissionsHandler;
 import pl.acmc.media.logger.GameLogger;
@@ -35,7 +38,7 @@ public class LiteCommandsCustomBuilder {
                 .missingPermission(new CommandMissingPermissionsHandler());
 
         builder.
-                argument(GameMode.class, new GameModeArgument())
+                argument(Player.class, new KickArgument())
                 //.argument(String.class, new WeaponArgument())
 
                 .argumentSuggestion(Integer.class, SuggestionResult.of("1", "2", "3"));
@@ -43,7 +46,7 @@ public class LiteCommandsCustomBuilder {
         List<Object> commands = new ArrayList<>();
 
         commands.addAll(Arrays.asList(
-// komenda
+                new KickPlayerCommand(), new WarpCommand()
         ));
 
         for (Object object : commands)

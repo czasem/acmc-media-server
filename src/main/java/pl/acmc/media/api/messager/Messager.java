@@ -58,7 +58,6 @@ public class Messager {
         String formattedTitle = ChatUtil.coloredHex(title);
         String formattedSubtitle = ChatUtil.coloredHex(subtitle);
 
-        player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(formattedTitle + " §8| " + formattedSubtitle));
         player.sendTitle(formattedTitle, formattedSubtitle);
     }
 }
