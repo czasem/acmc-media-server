@@ -10,10 +10,14 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import pl.acmc.media.Main;
 import pl.acmc.media.commands.argument.PlayerArgumentResolver;
+import pl.acmc.media.commands.cmds.players.msg.MsgCommand;
+import pl.acmc.media.commands.cmds.players.msg.ReplyCommand;
 import pl.acmc.media.commands.cmds.staff.kick.KickPlayerCommand;
 import pl.acmc.media.commands.cmds.staff.chat.ChatCommand;
 import pl.acmc.media.commands.cmds.staff.join.JoinCommand;
 import pl.acmc.media.commands.cmds.staff.pvp.PvPCommand;
+import pl.acmc.media.commands.cmds.staff.teleport.TpCommand;
+import pl.acmc.media.commands.cmds.staff.teleport.TpHereCommand;
 import pl.acmc.media.features.spawn.SpawnCommand;
 import pl.acmc.media.features.warps.WarpCommand;
 import pl.acmc.media.handlers.CommandInvalidUsageHandler;
@@ -51,7 +55,7 @@ public class LiteCommandsCustomBuilder {
 
         commands.addAll(Arrays.asList(
                 new KickPlayerCommand(), new WarpCommand(), new SpawnCommand(), new PvPCommand(), new ChatCommand(),
-                new JoinCommand()
+                new JoinCommand(), new MsgCommand(), new ReplyCommand(), new TpHereCommand(), new TpCommand()
         ));
 
         for (Object object : commands)

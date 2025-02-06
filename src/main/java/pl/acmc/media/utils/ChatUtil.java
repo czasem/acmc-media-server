@@ -18,6 +18,7 @@ public final class ChatUtil {
         return text.stream().map(ChatUtil::colored).toList();
     }
 
+
     public static String coloredHex(String message) {
         Matcher matcher = pattern.matcher(message);
         StringBuffer sb = new StringBuffer();
