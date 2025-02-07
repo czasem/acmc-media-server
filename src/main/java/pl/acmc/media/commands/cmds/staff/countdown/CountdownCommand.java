@@ -30,22 +30,14 @@ public class CountdownCommand {
     private ScheduledFuture<?> countdownTask;
     @Getter
     private boolean isRunning = false;
-    @Getter
-    private long initialMillis;
-    @Getter
-    private long remainingMillis;
-    @Getter
-    private BarColor bossBarColor = BarColor.PURPLE;
-    @Getter
-    private BarStyle bossBarStyle = BarStyle.SOLID;
 
     @Execute
     void executeCountdown(@Context Player player) {
         if(player.hasPermission("acmc.countdown.admin")) {
-            Messager.send(player, "Poprawne użycie &4/countdown [start/stop] [czas]", MessagerType.ERROR);
+            Messager.send(player, "Poprawne użycie &4/countdown [start/stop] [czas] [komenda]", MessagerType.ERROR);
         }
         if(isRunning) {
-            Messager.send(player, "Odliczanie aktualnie trwa &8(&a{TIME}&8)".replace("{TIME}", TimeUtil.convert(remainingMillis)), MessagerType.SUCCESS);
+            Messager.send(player, "Odliczanie jest włączone", MessagerType.SUCCESS);
             return;
         } else {
             Messager.send(player, "Odliczanie akutalnie jest wyłączone.", MessagerType.ERROR);
@@ -64,7 +56,6 @@ public class CountdownCommand {
             return;
         }
         Messager.send(player, "Rozpoczęto odliczanie.", MessagerType.SUCCESS);
-        remainingMillis = millis;
         isRunning = true;
 
         for (Player p : player.getServer().getOnlinePlayers()) {

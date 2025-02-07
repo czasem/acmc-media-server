@@ -2,6 +2,7 @@ package pl.acmc.media;
 
 import dev.rollczi.litecommands.LiteCommands;
 import lombok.Getter;
+import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
 import pl.acmc.media.api.builders.CompleteBuilder;
@@ -48,5 +49,9 @@ public class Main extends JavaPlugin {
 
     public static void sendLog(String string) {
         System.out.println("[MEDIA] -> " + string);
+    }
+
+    public static void sendLogBukkit(String string) {
+        Bukkit.getConsoleSender().sendMessage(string.replace("&", "§"));
     }
 }
