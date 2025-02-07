@@ -1,5 +1,5 @@
 name: acmc-media-server
 main: pl.acmc.media.Main
 version: 1.0
-authors: [czacwel, xGabriell]
+authors: [czasem, xGabriell]
 api-version: 1.18

@@ -20,6 +20,7 @@ import pl.acmc.media.commands.cmds.staff.join.JoinCommand;
 import pl.acmc.media.commands.cmds.staff.pvp.PvPCommand;
 import pl.acmc.media.commands.cmds.staff.teleport.TpCommand;
 import pl.acmc.media.commands.cmds.staff.teleport.TpHereCommand;
+import pl.acmc.media.features.plots.PlotsCommand;
 import pl.acmc.media.features.spawn.SpawnCommand;
 import pl.acmc.media.features.warps.WarpCommand;
 import pl.acmc.media.handlers.CommandInvalidUsageHandler;
@@ -58,7 +59,7 @@ public class LiteCommandsCustomBuilder {
         commands.addAll(Arrays.asList(
                 new KickPlayerCommand(), new WarpCommand(), new SpawnCommand(), new PvPCommand(), new ChatCommand(),
                 new JoinCommand(), new MsgCommand(), new ReplyCommand(), new TpHereCommand(), new TpCommand(),
-                new CountdownCommand(), new BroadcastCommand()
+                new CountdownCommand(), new BroadcastCommand(), new PlotsCommand()
         ));
 
         for (Object object : commands)

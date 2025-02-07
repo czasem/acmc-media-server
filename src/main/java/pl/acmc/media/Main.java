@@ -8,6 +8,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import pl.acmc.media.api.builders.CompleteBuilder;
 import pl.acmc.media.configuration.GlobalConfiguration;
 import pl.acmc.media.configuration.GuiConfig;
+import pl.acmc.media.features.plots.PlotsConfig;
 import pl.acmc.media.features.spawn.SpawnConfig;
 import pl.acmc.media.features.warps.WarpConfig;
 import pl.acmc.media.scheduler.Scheduler;
@@ -26,6 +27,8 @@ public class Main extends JavaPlugin {
     public static GuiConfig guiConfig;
     @Getter
     public static SpawnConfig spawnConfig;
+    @Getter
+    public static PlotsConfig plotsConfig;
 
     @Getter
     public static WarpConfig warpConfig;
@@ -41,6 +44,7 @@ public class Main extends JavaPlugin {
         warpConfig = ConfigUtil.loadConfig(WarpConfig.class);
         guiConfig = ConfigUtil.loadConfig(GuiConfig.class);
         spawnConfig = ConfigUtil.loadConfig(SpawnConfig.class);
+        plotsConfig = ConfigUtil.loadConfig(PlotsConfig.class);
 
         CompleteBuilder.build(liteCommands);
 
